@@ -52,17 +52,17 @@ Run the multipleFundus() function.
 Provide the required inputs in the dialog prompt that appears.
 The script will perform the analysis and display the results as plots.
 Example
-To run the fundusDiameter.m function, provide the required parameters:
+To run the fundusDiameter.m function, provide the required parameters (eg.):
+
 ```
-filename = 'example_image.tif';
-multiplier = 1.3;
-optic_disc_radius = 100;
-optic_disc_center = [200, 300];
-img = imread(filename);
-display_results = true;
-[vesselDiameter, orderedCoords] = fundusDiameter(filename, multiplier, optic_disc_radius, optic_disc_center, img, display_results);
+Enter filename:'2020-06-03_10-10-16-94.tif'
+Enter skew from between 1 and 0: 0.15
+Enter maximum 2x radius multiplier: 1.3
+Enter num_of_radiuses of radii: 30
+Do you want to view all photos? [Y/N]:'N'
 ```
 
 To run the multipleFundus.m function, simply call the function and provide the required inputs in the dialog prompt that appears:
-
+```
 multipleFundus();
+```
