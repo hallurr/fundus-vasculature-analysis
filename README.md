@@ -1,10 +1,11 @@
-# Fundus Vasculature Analysis
-This repository contains two MATLAB functions designed to analyze fundus images and compute vessel diameter:
+# Fundus Image Vasculature Analyzer - fundusDiameter
+This project provides a MATLAB tool for analyzing the vasculature in fundus images of the eye. Specifically, it helps calculate and visualize the diameter of vessels in the retinal image. This tool is provided as a companion to the methods described in the Journal of Visualized Experiments (JoVE) paper: Measuring Retinal Vessel Diameter from Mouse Fluorescent Angiography Images (Published: May 19th, 2023, DOI: 10.3791/64964).
 
-*1. **fundusDiameter.m**
-*2. **multipleFundus.m**
+## Articles:
+- García-Llorca, A., Reynisson, H., Eysteinsson, T. Measuring Retinal Vessel Diameter from Mouse Fluorescent Angiography Images. J. Vis. Exp. (195), e64964, doi:10.3791/64964 (2023).
+- Daníelsson, S. B., García-Llorca, A., Reynisson, H., & Eysteinsson, T. (2022). Mouse microphthalmia-associated transcription factor (Mitf) mutations affect the structure of the retinal vasculature. Acta ophthalmologica, 100(8), 911–918.
 
-## Requirements
+## Requirements:
 
 These functions require the following MATLAB toolboxes:
 
@@ -18,51 +19,32 @@ In addition, the following custom functions should be present in your MATLAB pat
 * hline
 * vline
 
-## Usage
-### 1. fundusDiameter.m
-This function calculates the vessel diameter for a given fundus image at a specific distance from the optic disc center.
-```
-[vesselDiameter, orderedCoords] = fundusDiameter(filename, multiplier, optic_disc_radius, optic_disc_center, img, display_results)
-```
-#### Parameters:
-
-* filename: The name of the fundus image file (e.g., 'example_image.tif').
-* multiplier: A number between 1 and 2 that determines the radius multiplier (e.g., 1.3).
-* optic_disc_radius: The radius of the optic disc in pixels.
-* optic_disc_center: A 1x2 array containing the x and y coordinates of the optic disc center.
-* img: The input fundus image.
-* display_results: A boolean flag that, if set to true, displays the analysis results as images.
+## Functionality
+### User-guided optic disc definition: 
+The tool enables the user to manually select the center and edge of the optic disc in the retinal image, providing a basis for further analysis.
+### Radius determination:
+The tool calculates a series of radii emanating from the optic disc center. Each radius serves as a sample line along which the vessel diameter is assessed.
+### Vessel thickness assessment:
+Along each radius, the tool identifies peaks in pixel intensity that correspond to blood vessels. It then measures the full-width-at-half-maximum (FWHM) of each peak, providing an estimate of vessel diameter.
+### Normalization and visualization:
+The tool normalizes the vessel diameter data and presents it in a series of graphs, allowing for a clear comparison of vessel thickness across the retinal image.
+Data extraction: The tool also allows you to export your results as a data table, making it easy to copy your data into other applications like Excel for further analysis.
 
 
-#### Returns:
+## How to Use:
+Run fundusDiameter.m.
+When prompted, select the image file of the fundus you wish to analyze.
+Enter the desired values for threshold multiplier, maximum 2x radius multiplier, and number of radii.
+Follow the prompts to select the center and edge of the optic disc in the image.
+The tool will automatically calculate and display the vessel diameters.
 
-vesselDiameter: The computed vessel diameter around the optic disc.
-orderedCoords: The ordered coordinates of the fundus image.
+## License
+This project is licensed under the MIT License.
 
-### 2. multipleFundus.m
-This function analyzes a fundus image and computes the vessel diameter around the optic disc for various radii.
 
-matlab
-Copy code
-multipleFundus()
+## Disclaimer
+This tool is intended for research purposes only and should not be used for medical diagnosis.
 
-#### Usage:
 
-Run the multipleFundus() function.
-Provide the required inputs in the dialog prompt that appears.
-The script will perform the analysis and display the results as plots.
-Example
-To run the fundusDiameter.m function, provide the required parameters (eg.):
-
-```
-Enter filename:'2020-06-03_10-10-16-94.tif'
-Enter skew from between 1 and 0: 0.15
-Enter maximum 2x radius multiplier: 1.3
-Enter num_of_radiuses of radii: 30
-Do you want to view all photos? [Y/N]:'N'
-```
-
-To run the multipleFundus.m function, simply call the function and provide the required inputs in the dialog prompt that appears:
-```
-multipleFundus();
-```
+## Author
+Hallur Reynisson
