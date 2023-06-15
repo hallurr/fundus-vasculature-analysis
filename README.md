@@ -5,6 +5,8 @@ This project provides a MATLAB tool for analyzing the vasculature in fundus imag
 - García-Llorca, A., Reynisson, H., Eysteinsson, T. Measuring Retinal Vessel Diameter from Mouse Fluorescent Angiography Images. J. Vis. Exp. (195), e64964, doi:10.3791/64964 (2023).
 - Daníelsson, S. B., García-Llorca, A., Reynisson, H., & Eysteinsson, T. (2022). Mouse microphthalmia-associated transcription factor (Mitf) mutations affect the structure of the retinal vasculature. Acta ophthalmologica, 100(8), 911–918.
 
+![Example Image of Fundus Vessel Diameter Analysis](https://github.com/hallurr/fundus-vasculature-analysis/blob/main/blob/master/fundus.png)
+
 ## Requirements:
 
 These functions require the following MATLAB toolboxes:
