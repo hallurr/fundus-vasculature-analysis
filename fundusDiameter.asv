@@ -27,11 +27,7 @@ grayImg = rgb2gray(img); % Convert to grayscale
 
 h0 = figure('units','normalized','outerposition',[0 0 1 1]);
 set(0,'CurrentFigure',h0); % Set current figure
-% Create a subplot that fills the whole figure
-ax = subplot('Position', [0 0 1 1]);
-
-% Show the image in the subplot
-imshow(img, 'Parent', ax); % Show image
+imshow(img); % Show image
 
 % Draw circle by selecting first the centre then the periphery of the optic disc
 tmpTitle = title('Select the center of the optic disk...','color','r','fontsize',16);
@@ -165,7 +161,7 @@ for i = 1:length(Circles)
     Y(:, 2) = (current_radius+M*size(img,1)/100) .* sin(angles)' + optic_disc_center(2); % Y-coordinates
     
     hold on
-    plot(Y(:,1),Y(:,2),'w', 'LineStyle', ':')
+    plot(Y(:,1),Y(:,2),'w', 'LineStyle', '-')
     Circles{i} = Y;
 end
 
