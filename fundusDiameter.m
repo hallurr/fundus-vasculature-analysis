@@ -7,7 +7,7 @@ filename = fullfile(filepath, filename); % Update filename
 prompt = {'Enter threshold multiplier:','Enter maximum 2x radius multiplier:','Enter num_of_radiuses of radii:'};
 dlg_title = 'Input for fundus analysis';
 num_lines = 1; % 1 line per input
-defaultans = {'1.15','1.3','30'};
+defaultans = {'1','1.4','40'};
 
 % Get user input
 answer = inputdlg(prompt,dlg_title,num_lines,defaultans);
